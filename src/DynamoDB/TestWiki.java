@@ -15,7 +15,7 @@ public class TestWiki {
 	public static final String USER_AGENT = "cis455crawler";
 
 	public static void main(String[] args) throws IOException, JSONException {
-		String url = "http://en.wikipedia.org/w/api.php?action=query&prop=revisions&titles=University_Of_Pennsylvania&rvprop=content&format=json&rvsection=0&rvparse=1";
+		String url = "http://en.wikipedia.org/w/api.php?action=query&prop=revisions&titles=computer&rvprop=content&format=json&rvsection=0&rvparse=1";
 		 
 		URL obj = new URL(url);
 		HttpURLConnection con = (HttpURLConnection) obj.openConnection();
@@ -27,8 +27,8 @@ public class TestWiki {
 		con.setRequestProperty("User-Agent", USER_AGENT);
  
 		int responseCode = con.getResponseCode();
-		System.out.println("\nSending 'GET' request to URL : " + url);
-		System.out.println("Response Code : " + responseCode);
+//		System.out.println("\nSending 'GET' request to URL : " + url);
+//		System.out.println("Response Code : " + responseCode);
  
 		BufferedReader in = new BufferedReader(
 		        new InputStreamReader(con.getInputStream()));
@@ -42,7 +42,7 @@ public class TestWiki {
 		in.close();
  
 		//print result
-		System.out.println(response.toString());
+//		System.out.println(response.toString());
 		
 		
 		String jsonresult = response.toString();
@@ -69,8 +69,8 @@ public class TestWiki {
 			System.out.println(html);
 			JSONArray normalized = jsonObj.getJSONObject("query").getJSONArray("normalized");
 			JSONObject fromto = normalized.getJSONObject(0);
-			String to = fromto.getString("to");
-			System.out.println(to);
+//			String to = fromto.getString("to");
+//			System.out.println(to);
 		}
 //		System.out.println(result == null);
 //		System.out.println(jsonObj.getJSONObject("query").getJSONObject("pages").toString());
